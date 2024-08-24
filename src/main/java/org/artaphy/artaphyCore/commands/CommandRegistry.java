@@ -1,13 +1,11 @@
 package org.artaphy.artaphyCore.commands;
 
 import org.artaphy.artaphyCore.ArtaphyCore;
-import org.artaphy.artaphyCore.commands.list.FlyCommand;
+import org.artaphy.artaphyCore.commands.list.*;
+
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.PluginCommand;
 import org.bukkit.command.TabCompleter;
-
-import java.util.Objects;
-import java.util.ServiceLoader;
 
 public class CommandRegistry {
     private final ArtaphyCore plugin;
@@ -17,7 +15,12 @@ public class CommandRegistry {
     }
 
     public void registerCommands() {
-        registerCommand("fly", new FlyCommand(plugin));
+        registerCommand("anvil", new AnvilCommand());
+        registerCommand("enchanting", new EnchantingCommand());
+        registerCommand("enderchest", new EnderChestCommand());
+        registerCommand("fly", new FlyCommand());
+        registerCommand("suicide", new SuicideCommand());
+        registerCommand("workbench", new WorkbenchCommand());
     }
 
     private void registerCommand(String name, CommandExecutor executor) {

@@ -1,5 +1,5 @@
 name: ArtaphyCore
-version: '${version}'
+version: '1.0.0-SNAPSHOT'
 main: org.artaphy.artaphyCore.ArtaphyCore
 api-version: '1.21'
 load: STARTUP

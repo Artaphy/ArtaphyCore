@@ -1,6 +1,5 @@
 package org.artaphy.artaphyCore.commands;
 
-import org.artaphy.artaphyCore.ArtaphyCore;
 import org.artaphy.artaphyCore.config.LanguageManager;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -12,14 +11,12 @@ import java.util.List;
 import java.util.UUID;
 
 public abstract class BaseCommand implements CommandExecutor, TabCompleter {
-    protected final ArtaphyCore plugin;
     private final String permission;
-    private final int cooldownTime;
+    private final int cooldown;
 
-    public BaseCommand(ArtaphyCore plugin, String permission, int cooldownTime) {
-        this.plugin = plugin;
+    public BaseCommand(String permission, int cooldown) {
         this.permission = "artaphycore.command." + permission;
-        this.cooldownTime = cooldownTime;
+        this.cooldown = cooldown;
     }
 
     @Override
@@ -48,8 +45,8 @@ public abstract class BaseCommand implements CommandExecutor, TabCompleter {
         UUID uuid = player.getUniqueId();
         CooldownManager cooldownManager = CooldownManager.getInstance();
 
-        if (cooldownTime > 0 && cooldownManager.isOnCooldown(command.getName(), uuid, cooldownTime)) {
-            long remainingTime = cooldownManager.getRemainingCooldown(command.getName(), uuid, cooldownTime);
+        if (cooldown > 0 && cooldownManager.isOnCooldown(command.getName(), uuid, cooldown)) {
+            long remainingTime = cooldownManager.getRemainingCooldown(command.getName(), uuid, cooldown);
             player.sendMessage(LanguageManager.get("commands.cooldown").replace("{time}", String.valueOf(remainingTime)));
             return false;
         }
@@ -65,7 +62,5 @@ public abstract class BaseCommand implements CommandExecutor, TabCompleter {
 
     protected abstract void executeCommand(CommandSender sender, Command command, String label, String[] args);
 
-    protected boolean requiresPlayer() {
-        return false;
-    }
+    protected abstract boolean requiresPlayer();
 }

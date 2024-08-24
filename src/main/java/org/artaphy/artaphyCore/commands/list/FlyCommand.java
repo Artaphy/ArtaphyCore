@@ -1,6 +1,5 @@
 package org.artaphy.artaphyCore.commands.list;
 
-import org.artaphy.artaphyCore.ArtaphyCore;
 import org.artaphy.artaphyCore.commands.BaseCommand;
 import org.artaphy.artaphyCore.commands.CommandFlags;
 import org.artaphy.artaphyCore.config.LanguageManager;
@@ -14,8 +13,8 @@ import java.util.List;
 
 public class FlyCommand extends BaseCommand {
 
-    public FlyCommand(ArtaphyCore plugin) {
-        super(plugin, "artaphycore.command.fly", 0);
+    public FlyCommand() {
+        super("fly", 0);
     }
 
     @Override
@@ -93,6 +92,6 @@ public class FlyCommand extends BaseCommand {
 
     @Override
     protected boolean requiresPlayer() {
-        return super.requiresPlayer();
+        return true;
     }
 }

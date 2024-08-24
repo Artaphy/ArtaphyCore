@@ -17,16 +17,4 @@ public class ConfigManager {
         plugin.reloadConfig();
         plugin.getLanguageManager().loadLanguage();
     }
-
-    public String getString(String path) {
-        return plugin.getConfig().getString(path);
-    }
-
-    public int getInt(String path) {
-        return plugin.getConfig().getInt(path);
-    }
-
-    public boolean getBoolean(String path) {
-        return plugin.getConfig().getBoolean(path);
-    }
 }
