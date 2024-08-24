@@ -22,5 +22,5 @@ jobs:
           ./gradlew clean build
       - uses: actions/upload-artifact@v3
         with:
-          name: BetterDoors
+          name: ArtaphyCores
           path: build/libs/*.jar
