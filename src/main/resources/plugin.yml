@@ -20,9 +20,25 @@ commands:
     usage: /<command> [player]
     aliases: [ ec ]
 
+  feed:
+    description: Restore hunger and optionally saturation for yourself or another player
+    usage: /<command> [player] [-sat]
+
   fly:
     description: Toggle flight mode for yourself or another player
     usage: /fly [player] [-on|-off]
+
+  flyspeed:
+    description: Set flying speed for yourself or another player
+    usage: /<command> <0-10> [player]
+
+  heal:
+    description: Restore health for yourself or another player
+    usage: /<command> [player]
+
+  speed:
+    description: Set walking speed for yourself or another player
+    usage: /<command> <0-10> [player]
 
   suicide:
     description: Kill yourself or another player

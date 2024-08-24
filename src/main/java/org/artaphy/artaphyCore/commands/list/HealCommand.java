@@ -3,16 +3,19 @@ package org.artaphy.artaphyCore.commands.list;
 import org.artaphy.artaphyCore.commands.BaseCommand;
 import org.artaphy.artaphyCore.config.LanguageManager;
 import org.bukkit.Bukkit;
+import org.bukkit.attribute.Attribute;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
-public class EnderChestCommand extends BaseCommand {
-    public EnderChestCommand() {
-        super("enderchest", 5); // 5秒冷却时间
+public class HealCommand extends BaseCommand {
+
+    public HealCommand() {
+        super("heal", 0);
     }
 
     @Override
@@ -25,7 +28,7 @@ public class EnderChestCommand extends BaseCommand {
                 sender.sendMessage(LanguageManager.get("commands.player-not-found").replace("{player}", args[0]));
                 return;
             }
-            if (!sender.hasPermission("artaphycore.command.enderchest.others")) {
+            if (!sender.hasPermission("artaphycore.command.heal.others")) {
                 sender.sendMessage(LanguageManager.get("commands.no-permission"));
                 return;
             }
@@ -37,16 +40,13 @@ public class EnderChestCommand extends BaseCommand {
             target = (Player) sender;
         }
 
-        if (sender instanceof Player playerSender) {
-            playerSender.openInventory(target.getEnderChest());
+        target.setHealth(Objects.requireNonNull(target.getAttribute(Attribute.GENERIC_MAX_HEALTH)).getBaseValue());
 
-            if (target == sender) {
-                sender.sendMessage(LanguageManager.get("commands.enderchest.opened-self"));
-            } else {
-                sender.sendMessage(LanguageManager.get("commands.enderchest.opened-other").replace("{player}", target.getName()));
-            }
+        if (target == sender) {
+            sender.sendMessage(LanguageManager.get("commands.heal.self"));
         } else {
-            sender.sendMessage(LanguageManager.get("commands.enderchest.console-error"));
+            sender.sendMessage(LanguageManager.get("commands.heal.other").replace("{player}", target.getName()));
+            target.sendMessage(LanguageManager.get("commands.heal.by-other"));
         }
     }
 
@@ -54,7 +54,7 @@ public class EnderChestCommand extends BaseCommand {
     public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
         List<String> completions = new ArrayList<>();
 
-        if (args.length == 1 && sender.hasPermission("artaphycore.command.enderchest.others")) {
+        if (args.length == 1 && sender.hasPermission("artaphycore.command.heal.others")) {
             for (Player player : Bukkit.getOnlinePlayers()) {
                 completions.add(player.getName());
             }
@@ -65,6 +65,6 @@ public class EnderChestCommand extends BaseCommand {
 
     @Override
     protected boolean requiresPlayer() {
-        return true;
+        return false;
     }
 }

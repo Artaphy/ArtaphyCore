@@ -27,7 +27,7 @@ public class WorkbenchCommand extends BaseCommand {
                 return;
             }
             if (!sender.hasPermission("artaphycore.command.workbench.others")) {
-                sender.sendMessage(LanguageManager.get("commands.workbench.no-permission-others"));
+                sender.sendMessage(LanguageManager.get("commands.no-permission"));
                 return;
             }
         } else {

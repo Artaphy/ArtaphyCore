@@ -2,6 +2,7 @@ package org.artaphy.artaphyCore.config;
 
 import org.artaphy.artaphyCore.ArtaphyCore;
 import org.artaphy.artaphyCore.utils.ColorUtil;
+import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
@@ -77,6 +78,6 @@ public class LanguageManager {
     }
 
     public static String get(String key) {
-        return ColorUtil.colorize(messages.getOrDefault(key, "Missing translation: " + key));
+        return ColorUtil.colorize(messages.getOrDefault(key, ChatColor.RED + "Missing translation: " + key));
     }
 }

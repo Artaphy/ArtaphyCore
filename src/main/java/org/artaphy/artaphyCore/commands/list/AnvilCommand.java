@@ -28,7 +28,7 @@ public class AnvilCommand extends BaseCommand {
                 return;
             }
             if (!sender.hasPermission("artaphycore.command.anvil.others")) {
-                sender.sendMessage(LanguageManager.get("commands.anvil.no-permission-others"));
+                sender.sendMessage(LanguageManager.get("commands.no-permission"));
                 return;
             }
         } else {

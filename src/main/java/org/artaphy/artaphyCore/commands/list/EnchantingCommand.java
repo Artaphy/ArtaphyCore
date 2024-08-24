@@ -28,7 +28,7 @@ public class EnchantingCommand extends BaseCommand {
                 return;
             }
             if (!sender.hasPermission("artaphycore.command.enchanting.others")) {
-                sender.sendMessage(LanguageManager.get("commands.enchanting.no-permission-others"));
+                sender.sendMessage(LanguageManager.get("commands.no-permission"));
                 return;
             }
         } else {

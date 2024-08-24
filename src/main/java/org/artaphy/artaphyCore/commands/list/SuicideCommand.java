@@ -26,7 +26,7 @@ public class SuicideCommand extends BaseCommand {
                 return;
             }
             if (!sender.hasPermission("artaphycore.command.suicide.others")) {
-                sender.sendMessage(LanguageManager.get("commands.suicide.no-permission-others"));
+                sender.sendMessage(LanguageManager.get("commands.no-permission"));
                 return;
             }
         } else {

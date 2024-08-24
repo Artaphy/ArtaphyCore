@@ -18,7 +18,11 @@ public class CommandRegistry {
         registerCommand("anvil", new AnvilCommand());
         registerCommand("enchanting", new EnchantingCommand());
         registerCommand("enderchest", new EnderChestCommand());
+        registerCommand("feed", new FeedCommand());
         registerCommand("fly", new FlyCommand());
+        registerCommand("flyspeed", new FlySpeedCommand());
+        registerCommand("heal", new HealCommand());
+        registerCommand("speed", new SpeedCommand());
         registerCommand("suicide", new SuicideCommand());
         registerCommand("workbench", new WorkbenchCommand());
     }
