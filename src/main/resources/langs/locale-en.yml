@@ -1,0 +1,16 @@
+commands:
+
+  no-permission: "&cYou don't have permission to run this command."
+  player-only: "&cThis command can only be used by players."
+  player-not-found: "&cPlayer {player} not found."
+  cooldown: "&cYou are in cooldown time, please wait for {time}s."
+
+  fly:
+    conflicting-flags: "&cYou cannot use -on and -off flags at the same time."
+    toggle-self: "&aYour flight mode has been {status}&a."
+    toggle-other: "&aFlight mode for {player} has been {status}&a."
+    toggled-by-other: "&aYour flight mode has been {status} &aby an admin."
+
+common:
+  enabled: "enabled"
+  disabled: "disabled"
