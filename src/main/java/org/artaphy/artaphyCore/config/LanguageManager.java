@@ -8,12 +8,14 @@ import org.bukkit.configuration.file.YamlConfiguration;
 
 import java.io.*;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class LanguageManager {
     private static final Map<String, String> messages = new HashMap<>();
     private final ArtaphyCore plugin;
-    private FileConfiguration languageConfig;
+    private static FileConfiguration languageConfig;
 
     public LanguageManager(ArtaphyCore plugin) {
         this.plugin = plugin;
@@ -79,5 +81,10 @@ public class LanguageManager {
 
     public static String get(String key) {
         return ColorUtil.colorize(messages.getOrDefault(key, ChatColor.RED + "Missing translation: " + key));
+    }
+
+    public static List<String> getList(String key) {
+        List<String> list = languageConfig.getStringList(key);
+        return list.stream().map(ColorUtil::colorize).collect(Collectors.toList());
     }
 }

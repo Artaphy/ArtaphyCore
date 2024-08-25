@@ -1,6 +1,5 @@
 package org.artaphy.artaphyCore.commands.list;
 
-import org.artaphy.artaphyCore.ArtaphyCore;
 import org.artaphy.artaphyCore.commands.BaseCommand;
 import org.artaphy.artaphyCore.config.LanguageManager;
 import org.bukkit.Bukkit;

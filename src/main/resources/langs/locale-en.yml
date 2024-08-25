@@ -41,6 +41,108 @@ commands:
     other: "&aYou have healed {player}."
     by-other: "&aYou have been healed by an admin."
 
+  item:
+    help:
+      - "&6=== Item Command Help ==="
+      - "&e/item help &7- Show this help message"
+      - "&e/item enchant <enchantment> <level> &7- Enchant or disenchant an item"
+      - "&e/item flag &7- Manage item flags"
+      - "&e/item get <material> [amount] &7- Get an item"
+      - "&e/item give <player> <material> [amount] &7- Give an item to a player"
+      - "&e/item lore &7- Manage item lore"
+      - "&e/item model <model data> &7- Set custom model data"
+      - "&e/item name <custom name> &7- Set item name"
+      - "&e/item spawn <material> <amount> [world x y z] &7- Spawn an item in the world"
+      - "&e/item take <player> <material> [amount] &7- Take an item from a player"
+      - "&e/item damage <amount> &7- Damage an item"
+      - "&e/item unbreakable &7- Make an item unbreakable"
+      - "&e/item potion <effect> <amplifier> <duration> &7- Add potion effect to a potion"
+      - "&e/item amount <amount> &7- Set item amount"
+
+    unknown-subcommand: "&cUnknown subcommand. Use /item help for a list of commands."
+    no-item: "&cYou must be holding an item to use this command."
+
+    amount:
+      usage: "&cUsage: /item amount <amount>"
+      invalid-number: "&cInvalid number. Please enter a valid integer."
+      invalid-amount: "&cInvalid amount. The amount must be between 1 and {max}."
+      success: "&aSuccessfully set the item amount to {amount}."
+
+    damage:
+      usage: "&cUsage: /item damage <amount>"
+      success: "&aItem durability reduced by {amount}. Remaining durability: {durability}."
+      not-damageable: "&cThis item cannot be damaged."
+      invalid-amount: "&cInvalid damage amount. Please enter a number."
+
+    enchant:
+      usage: "&cUsage: /item enchant <enchantment> <level>"
+      invalid-level: "&cInvalid enchantment level. Please enter a valid number."
+      invalid-enchantment: "&cInvalid enchantment name."
+      removed: "&aRemoved {enchantment} enchantment from the item."
+      added: "&aAdded {enchantment} level {level} to the item."
+
+    flag:
+      usage: "&cUsage: /item flag [help|add|remove|clear]"
+      invalid-subcommand: "&cInvalid subcommand. Use /item flag help for more information."
+      invalid-flag: "&cInvalid flag: {flag}"
+      added: "&aAdded flag {flag} to the item."
+      removed: "&aRemoved flag {flag} from the item."
+      not-present: "&cThe flag {flag} is not present on this item."
+      cleared: "&aCleared all flags from the item."
+      add.usage: "&cUsage: /item flag add <flag>"
+      remove.usage: "&cUsage: /item flag remove <flag>"
+      help:
+        - "&6Item Flag Management:"
+        - "&7/item flag help - Show all available ItemFlags"
+        - "&7/item flag add <flag> - Add an ItemFlag to the item"
+        - "&7/item flag remove <flag> - Remove an ItemFlag from the item"
+        - "&7/item flag clear - Clear all ItemFlags from the item"
+        - " "
+        - "&6Available ItemFlags:"
+        - "&7HIDE_ENCHANTS - Hides enchantments"
+        - "&7HIDE_ATTRIBUTES - Hides attributes like damage"
+        - "&7HIDE_UNBREAKABLE - Hides the unbreakable state"
+        - "&7HIDE_DESTROYS - Hides what the item can destroy"
+        - "&7HIDE_PLACED_ON - Hides where the item can be placed"
+        - "&7HIDE_POTION_EFFECTS - Hides potion effects"
+        - "&7HIDE_DYE - Hides the dye color"
+        - "&7HIDE_ARMOR_TRIM - Hides armor trim"
+        - "&7HIDE_ADDITIONAL_TOOLTIP - Hides additional tooltip information"
+
+    get:
+      usage: "&cUsage: /item get <material> [amount]"
+      invalid-material: "&cInvalid material name. Please use a valid Minecraft material name."
+      invalid-amount: "&cInvalid amount. Please use a positive integer."
+      success: "&aYou have received {amount} {material}."
+
+    give:
+      usage: "&cUsage: /item give <player> <material> [amount]"
+      invalid-material: "&cInvalid material name. Please use a valid Minecraft material name."
+      invalid-amount: "&cInvalid amount. Please use a positive integer."
+      success: "&aYou have given {amount} {material} to {player}."
+
+    lore:
+      usage: "&cUsage: /item lore <add|remove|set|clear>"
+      invalid-action: "&cInvalid action. Use add, remove, set, or clear."
+      invalid-index: "&cInvalid index. Please provide a valid number."
+      index-out-of-bounds: "&cThe specified index is out of bounds."
+      add:
+        usage: "&cUsage: /item lore add <lore text>"
+        success: "&aLore line added successfully."
+      remove:
+        usage: "&cUsage: /item lore remove <line number>"
+        success: "&aLore line removed successfully."
+      set:
+        usage: "&cUsage: /item lore set <line1> [line2] [line3] ..."
+        success: "&aLore set successfully."
+      clear:
+        success: "&aLore cleared successfully."
+      help:
+        - "&6/item lore help &7- Show this help message"
+        - "&6/item lore add <text> &7- Add a line of lore to the item"
+        - "&6/item lore remove <line> &7- Remove a specific line of lore"
+        - "&6/item lore clear &7- Clear all lore from the item"
+
   speed:
     usage: "&cUsage: /speed <0-10> [player]"
     invalid-range: "&cSpeed must be between 0 and 10."
@@ -48,6 +150,12 @@ commands:
     set-self: "&aYour walking speed has been set to {speed}."
     set-other: "&aYou have set {player}'s walking speed to {speed}."
     set-by-other: "&aYour walking speed has been set to {speed} by an admin."
+
+  sudo:
+    usage: "&cUsage: /sudo <player> \"<command>\" [-c]"
+    invalid-format: "&cThe command or message must be enclosed in double quotes."
+    success-command: "&aSuccessfully executed command '{command}' as {player}."
+    success-chat: "&aSuccessfully sent message '{message}' as {player}."
 
   suicide:
     self: "&aYou have committed suicide."

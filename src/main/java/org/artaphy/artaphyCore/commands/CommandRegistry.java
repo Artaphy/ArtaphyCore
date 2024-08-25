@@ -22,7 +22,9 @@ public class CommandRegistry {
         registerCommand("fly", new FlyCommand());
         registerCommand("flyspeed", new FlySpeedCommand());
         registerCommand("heal", new HealCommand());
+        registerCommand("item", new ItemCommand());
         registerCommand("speed", new SpeedCommand());
+        registerCommand("sudo", new SudoCommand());
         registerCommand("suicide", new SuicideCommand());
         registerCommand("workbench", new WorkbenchCommand());
     }

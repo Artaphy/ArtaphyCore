@@ -9,7 +9,6 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public final class ArtaphyCore extends JavaPlugin {
 
-    private static ArtaphyCore instance;
     private ConfigManager configManager;
     private LanguageManager languageManager;
     private CommandRegistry commandRegistry;
@@ -17,7 +16,6 @@ public final class ArtaphyCore extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        instance = this;
 
         if (!isServerCompatible()) {
             getLogger().severe("This plugin is only compatible with Minecraft 1.21 and above!");
@@ -57,10 +55,6 @@ public final class ArtaphyCore extends JavaPlugin {
     public void reload() {
         configManager.reloadConfig();
         languageManager.loadLanguage();
-    }
-
-    public static ArtaphyCore getInstance() {
-        return instance;
     }
 
     public ConfigManager getConfigManager() {

@@ -41,6 +41,33 @@ commands:
     other: "&aYou have healed {player}."
     by-other: "&aYou have been healed by an admin."
 
+  item:
+    help:
+      - "&6=== Item Command Help ==="
+      - "&e/item help &7- Show this help message"
+      - "&e/item enchant <enchantment> <level> &7- Enchant or disenchant an item"
+      - "&e/item flag &7- Manage item flags"
+      - "&e/item get <material> [amount] [-name] [-lore] [-ench] [-model] &7- Get an item"
+      - "&e/item give <player> <material> [amount] [-name] [-lore] [-ench] [-model] &7- Give an item to a player"
+      - "&e/item lore &7- Manage item lore"
+      - "&e/item model <model data> &7- Set custom model data"
+      - "&e/item name <custom name> &7- Set item name"
+      - "&e/item spawn <material> <amount> [world x y z] [-name] [-lore] [-ench] [-model] &7- Spawn an item in the world"
+      - "&e/item take <player> <material> [amount] [-name] [-lore] [-ench] [-model] &7- Take an item from a player"
+      - "&e/item damage <amount> &7- Damage an item"
+      - "&e/item unbreakable &7- Make an item unbreakable"
+      - "&e/item potion <effect> <amplifier> <duration> &7- Add potion effect to a potion"
+      - "&e/item amount <amount> &7- Set item amount"
+    unknown-subcommand: "&cUnknown subcommand. Use /item help for a list of commands."
+    no-item: "&cYou must be holding an item to use this command."
+    enchant:
+      usage: "&cUsage: /item enchant <enchantment> <level>"
+      invalid-level: "&cInvalid enchantment level. Please enter a valid number."
+      invalid-enchantment: "&cInvalid enchantment name."
+      removed: "&aRemoved {enchantment} enchantment from the item."
+      added: "&aAdded {enchantment} level {level} to the item."
+      description: "Enchant or disenchant an item"
+
   speed:
     usage: "&cUsage: /speed <0-10> [player]"
     invalid-range: "&cSpeed must be between 0 and 10."
@@ -48,6 +75,12 @@ commands:
     set-self: "&aYour walking speed has been set to {speed}."
     set-other: "&aYou have set {player}'s walking speed to {speed}."
     set-by-other: "&aYour walking speed has been set to {speed} by an admin."
+
+  sudo:
+    usage: "&cUsage: /sudo <player> \"<command>\" [-c]"
+    invalid-format: "&cThe command or message must be enclosed in double quotes."
+    success-command: "&aSuccessfully executed command '{command}' as {player}."
+    success-chat: "&aSuccessfully sent message '{message}' as {player}."
 
   suicide:
     self: "&aYou have committed suicide."

@@ -36,9 +36,18 @@ commands:
     description: Restore health for yourself or another player
     usage: /<command> [player]
 
+  item:
+    description: Edit and manage items
+    usage: /item <subcommand> [args...]
+    aliases: [ i ]
+
   speed:
     description: Set walking speed for yourself or another player
     usage: /<command> <0-10> [player]
+
+  sudo:
+    description: Force a player to execute a command or send a chat message
+    usage: /sudo <player> "<command>" [-c]
 
   suicide:
     description: Kill yourself or another player
