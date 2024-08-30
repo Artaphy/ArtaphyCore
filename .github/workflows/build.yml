@@ -21,7 +21,7 @@ jobs:
           git config --global user.name "Github Actions"
           chmod +x ./gradlew
           ./gradlew clean build
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@main
         with:
           name: ArtaphyCore
           path: build/libs/*.jar
