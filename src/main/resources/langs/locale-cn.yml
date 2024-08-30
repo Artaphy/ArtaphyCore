@@ -1,0 +1,172 @@
+commands:
+  no-permission: "&c您没有权限运行此命令。"
+  player-only: "&c此命令只能由玩家使用。"
+  player-not-found: "&c找不到玩家 {player}。"
+  cooldown: "&c您正在冷却时间中，请等待 {time} 秒。"
+
+  anvil:
+    opened-self: "&a铁砧成功打开。"
+    opened-other: "&a为 {player} 打开铁砧。"
+    opened-by-other: "&a管理员已为您打开铁砧。"
+
+  enchanting:
+    opened-self: "&a附魔台成功打开。"
+    opened-other: "&a为 {player} 打开附魔台。"
+    opened-by-other: "&a管理员已为您打开附魔台。"
+
+  feed:
+    fed-self: "&a您已被喂食。"
+    fed-other: "&a您已喂食 {player}。"
+    fed-by-other: "&a您已被管理员喂食。"
+    fed-and-saturated-self: "&a您已被喂食且饱腹状态已恢复。"
+    fed-and-saturated-other: "&a您已喂食 {player} 并恢复了他们的饱腹状态。"
+    fed-and-saturated-by-other: "&a您已被喂食且饱腹状态已由管理员恢复。"
+
+  fly:
+    conflicting-flags: "&c您不能同时使用 -on 和 -off 标志。"
+    toggle-self: "&a您的飞行模式已被 {status}&a。"
+    toggle-other: "&a{player} 的飞行模式已被 {status}&a。"
+    toggled-by-other: "&a您的飞行模式已被管理员 {status} &a。"
+
+  flyspeed:
+    usage: "&c用法：/flyspeed <0-10> [player]"
+    invalid-range: "&c飞行速度必须在 0 到 10 之间。"
+    invalid-number: "&c无效的飞行速度值。请输入 0 到 10 之间的数字。"
+    set-self: "&a您的飞行速度已设置为 {speed}。"
+    set-other: "&a您已将 {player} 的飞行速度设置为 {speed}。"
+    set-by-other: "&a您的飞行速度已被管理员设置为 {speed}。"
+
+  heal:
+    self: "&a您已被治疗。"
+    other: "&a您已治疗 {player}。"
+    by-other: "&a您已被管理员治疗。"
+
+  item:
+    help:
+      - "&6=== 物品命令帮助 ==="
+      - "&e/item help &7- 显示此帮助信息"
+      - "&e/item enchant <enchantment> <level> &7- 给物品附魔或取消附魔"
+      - "&e/item flag &7- 管理物品标志"
+      - "&e/item get <material> [amount] &7- 获取物品"
+      - "&e/item give <player> <material> [amount] &7- 给玩家一个物品"
+      - "&e/item lore &7- 管理物品描述"
+      - "&e/item model <model data> &7- 设置自定义模型数据"
+      - "&e/item name <custom name> &7- 设置物品名称"
+      - "&e/item spawn <material> <amount> [world x y z] &7- 在世界中生成物品"
+      - "&e/item take <player> <material> [amount] &7- 从玩家那里获取物品"
+      - "&e/item damage <amount> &7- 伤害物品"
+      - "&e/item unbreakable &7- 使物品不可破坏"
+      - "&e/item potion <effect> <amplifier> <duration> &7- 给药水添加效果"
+      - "&e/item amount <amount> &7- 设置物品数量"
+
+    unknown-subcommand: "&c未知的子命令。使用 /item help 获取命令列表。"
+    no-item: "&c您必须手持物品才能使用此命令。"
+
+    amount:
+      usage: "&c用法：/item amount <amount>"
+      invalid-number: "&c无效数字。请输入有效的整数。"
+      invalid-amount: "&c无效数量。数量必须在 1 和 {max} 之间。"
+      success: "&a成功将物品数量设置为 {amount}。"
+
+    damage:
+      usage: "&c用法：/item damage <amount>"
+      success: "&a物品耐久度减少了 {amount}。剩余耐久度：{durability}。"
+      not-damageable: "&c此物品无法损坏。"
+      invalid-amount: "&c无效的损坏数量。请输入一个数字。"
+
+    enchant:
+      usage: "&c用法：/item enchant <enchantment> <level>"
+      invalid-level: "&c无效的附魔等级。请输入有效的数字。"
+      invalid-enchantment: "&c无效的附魔名称。"
+      removed: "&a已从物品中移除 {enchantment} 附魔。"
+      added: "&a已将 {enchantment} 等级 {level} 添加到物品。"
+
+    flag:
+      usage: "&c用法：/item flag [help|add|remove|clear]"
+      invalid-subcommand: "&c无效的子命令。使用 /item flag help 获取更多信息。"
+      invalid-flag: "&c无效的标志：{flag}"
+      added: "&a已将标志 {flag} 添加到物品。"
+      removed: "&a已从物品中移除标志 {flag}。"
+      not-present: "&c此物品上不存在标志 {flag}。"
+      cleared: "&a已清除物品上的所有标志。"
+      add.usage: "&c用法：/item flag add <flag>"
+      remove.usage: "&c用法：/item flag remove <flag>"
+      help:
+        - "&6物品标志管理："
+        - "&7/item flag help - 显示所有可用的物品标志"
+        - "&7/item flag add <flag> - 将物品标志添加到物品"
+        - "&7/item flag remove <flag> - 从物品中移除物品标志"
+        - "&7/item flag clear - 清除物品上的所有物品标志"
+        - " "
+        - "&6可用物品标志："
+        - "&7HIDE_ENCHANTS - 隐藏附魔"
+        - "&7HIDE_ATTRIBUTES - 隐藏属性，如伤害"
+        - "&7HIDE_UNBREAKABLE - 隐藏不可破坏状态"
+        - "&7HIDE_DESTROYS - 隐藏物品可以摧毁的内容"
+        - "&7HIDE_PLACED_ON - 隐藏物品可以放置的位置"
+        - "&7HIDE_POTION_EFFECTS - 隐藏药水效果"
+        - "&7HIDE_DYE - 隐藏染料颜色"
+        - "&7HIDE_ARMOR_TRIM - 隐藏护甲边框"
+        - "&7HIDE_ADDITIONAL_TOOLTIP - 隐藏附加工具提示信息"
+
+    get:
+      usage: "&c用法：/item get <material> [amount]"
+      invalid-material: "&c无效的物品名称。请使用有效的Minecraft物品名称。"
+      invalid-amount: "&c无效数量。请使用正整数。"
+      success: "&a您已获得 {amount} {material}。"
+
+    give:
+      usage: "&c用法：/item give <player> <material> [amount]"
+      invalid-material: "&c无效的物品名称。请使用有效的Minecraft物品名称。"
+      invalid-amount: "&c无效数量。请使用正整数。"
+      success: "&a您已将 {amount} {material} 给予 {player}。"
+
+    lore:
+      usage: "&c用法：/item lore <add|remove|set|clear>"
+      invalid-action: "&c无效行为。使用 add、remove、set 或 clear。"
+      invalid-index: "&c无效索引。请提供有效数字。"
+      index-out-of-bounds: "&c指定的索引超出范围。"
+      add:
+        usage: "&c用法：/item lore add <描述文本>"
+        success: "&a描述行添加成功。"
+      remove:
+        usage: "&c用法：/item lore remove <行号>"
+        success: "&a描述行移除成功。"
+      set:
+        usage: "&c用法：/item lore set <line1> [line2] [line3] ..."
+        success: "&a描述设置成功。"
+      clear:
+        success: "&a描述清除成功。"
+      help:
+        - "&6/item lore help &7- 显示此帮助信息"
+        - "&6/item lore add <text> &7- 向物品添加一行描述"
+        - "&6/item lore remove <line> &7- 移除特定的描述行"
+        - "&6/item lore clear &7- 清除物品上的所有描述"
+
+  speed:
+    usage: "&c用法：/speed <0-10> [player]"
+    invalid-range: "&c速度必须在 0 和 10 之间。"
+    invalid-number: "&c无效的速度值。请在 0 和 10 之间输入数字。"
+    set-self: "&a您的行走速度已设置为 {speed}。"
+    set-other: "&a您已将 {player} 的行走速度设置为 {speed}。"
+    set-by-other: "&a您的行走速度已由管理员设置为 {speed}。"
+
+  sudo:
+    usage: '&c用法：/sudo <player> "<command>" [-c]'
+    invalid-format: "&c命令或消息必须用双引号括起来。"
+    success-command: "&a成功以 {player} 的身份执行命令 '{command}'。"
+    success-chat: "&a成功以 {player} 的身份发送消息 '{message}'。"
+
+  suicide:
+    self: "&a您已自杀。"
+    other: "&a您让 {player} 自杀。"
+    by-other: "&c管理员让您自杀。"
+
+  workbench:
+    opened-self: "&a工作台成功打开。"
+    opened-other: "&a为 {player} 打开工作台。"
+    opened-by-other: "&a管理员已为您打开工作台。"
+
+common:
+  enabled: "已启用"
+  disabled: "已禁用"
